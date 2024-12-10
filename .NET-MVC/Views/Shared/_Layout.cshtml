@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<!-- data-bs-theme uses bootstrap to set the theme of the element and all child elements -->
+<html class="" lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ITPE3200ExamProject</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body class="container-fluid vh-100 d-flex flex-column p-0" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand bg-dark" data-bs-theme="dark" style="z-index: 2;">
+        <a href="/"><img src="\img\Spotshare_Logo.png" alt="" style="width: 75px; height: 75px;"></a>
+        <div class="nav w-100 justify-content-end">
+            <a class="nav-link active text-light fs-5" asp-controller="Home" asp-action="Index">Map</a>
+            <!-- Shows login/register if logged out, otherwise shows logout/profile -->
+            <partial name="_LoginPartial" />
+        </div>
+    </nav>
+
+    <main class="row flex-fill position-relative m-0">
+        <!-- Renders the HTML from each view -->
+        @RenderBody()
+    </main>
+    <!-- JavaScript that is applied to the entire webapp -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="~/js/site.js"></script>
+
+    <!-- Renders the scripts section from each view -->
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+﻿@model ITPE3200ExamProject.ViewModels.RegisterViewModel
+<div class="container text-center bg">
+    <div class="row row-cols-1 justify-content-center">
+        <div class="col-8 col-md-5 col-lg-3 border border-2 rounded p-3 bg-white mt-5">
+            <img src="\img\Spotshare_Logo.png" alt="" style="width: 100px; height: 100px;">
+            <h2>Register</h2>
+            <form asp-action="Register" method="post">
+                <div class="form-group">
+                    <label asp-for="Email" class="fw-bold"></label>
+                    <input placeholder="Enter E-mail" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="fw-bold"></label>
+                    <input placeholder="Enter Password" asp-for="Password" class="form-control" />
+                    <ul id="password-requirements" class="text-start">
+                        <li id="require-lower" class="invalid">At least one lower case letter</li>
+                        <li id="require-upper" class="invalid">At least one upper case letter</li>
+                        <li id="require-number" class="invalid">At least one number</li>
+                        <li id="require-length" class="invalid">Must be at least 8 characters long</li>
+                    </ul>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword" class="fw-bold">Confirm password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary"
+                    style="width: 100%; margin: 7px 0 10px 0;">Register</button>
+            </form>
+        </div>
+
+    </div>
+    <div class="row justify-content-center mt-2">
+        <div class="col-8 col-md-5 col-lg-3 border border-2 rounded text-center p-3 bg-white">
+            <p>Have an account? <a href="./Login">Log in</a></p>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="~/js/register.js"></script>

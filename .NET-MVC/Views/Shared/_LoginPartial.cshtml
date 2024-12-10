@@ -1,0 +1,18 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Account> SignInManager
+@inject UserManager<Account> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+// Shows login/register if logged out, otherwise shows logout/profile
+{
+    <a class="nav-link text-light fs-5" asp-controller="Account" asp-action="Manage">Account</a>
+    <form asp-controller="Account" asp-action="Logout">
+        <button class="btn btn-link nav-link text-light fs-5" type="submit">Logout</button>
+    </form>
+}
+else
+{
+    <a class="nav-link text-light fs-5" asp-controller="Account" asp-action="Login">Login</a>
+    <a class="nav-link text-light fs-5" asp-controller="Account" asp-action="Register">Register</a>
+}

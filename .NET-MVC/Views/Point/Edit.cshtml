@@ -1,0 +1,47 @@
+@model ShowPointViewModel
+
+
+<!-- Edit page for an existing point -->
+<div class="container text-center bg">
+    <div class="row row-cols-1 justify-content-center ">
+        <div class="col-12 col-md-8 col-lg-6 border border-2 rounded p-3 bg-white mt-5 fw-bold">
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Point!.PointId" />
+                <input type="hidden" asp-for="Point!.Latitude" />
+                <input type="hidden" asp-for="Point!.Longitude" />
+                <input type="hidden" asp-for="Point!.Account" />
+                <input type="hidden" asp-for="Point!.AccountId" />
+                <input type="hidden" asp-for="Point!.Comments" />
+                <div class="form-group">
+                    <label asp-for="Point!.Name"></label>
+                    <input placeholder="Enter Title" asp-for="Point!.Name" class="form-control" />
+                    <span asp-validation-for="Point!.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Point!.Description"></label>
+                    <textarea rows="7" placeholder="Enter Description" asp-for="Point!.Description" class="form-control"></textarea>
+                    <span asp-validation-for="Point!.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Point!.UploadedImages">Images</label>
+                    <input type="file" multiple asp-for="Point!.UploadedImages" class="form-control"
+                        accept=".jpg, .jpeg, .png">
+                </div>
+                <button class="btn btn-primary" type="submit">Update</button>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Cancel</a>
+            </form>
+            <div class="float-start">
+                @for (int i = 0; i < @Model?.Images?.Count; i++)
+                {
+                    <div class="edit-pic justify-content-center m-1">
+                        <img src="@Model.Images[i].FilePath" alt="Image @i" width="200" />
+                        <form asp-action="DeleteImage" method="post" class="d-inline">
+                            <input type="hidden" name="imageId" value="@Model.Images[i].ImageId" />
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this image? This action is permanent');">X</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

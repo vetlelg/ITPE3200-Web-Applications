@@ -1,0 +1,30 @@
+
+<div class="container justify-content-center bg text-center">
+    <div class="row row-cols-1 justify-content-center">
+        <div class="col-11 col-md-8 col-lg-6 border border-2 rounded p-3 bg-white mt-5">
+            <div class="row">
+                <h1 class="text-center">Profile</h1>
+                <h5 class="text-center">Email: @User.Identities.First().Name</h5>
+                <h3 class="mt-2">Change Email</h3>
+                <partial name="_EmailFormPartial" />
+                @if (ViewBag.EmailSuccess != null)
+                {
+                    <div class="text-success mt-2">
+                        @ViewBag.EmailSuccess
+                    </div>
+                }
+                <h3 class="mt-4">Change Password</h3>
+                <partial name="_PasswordFormPartial" />
+                @if (ViewBag.PasswordSuccess != null)
+                {
+                    <div class="text-success mt-2">
+                        @ViewBag.PasswordSuccess
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

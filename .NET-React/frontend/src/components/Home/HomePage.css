@@ -1,0 +1,10 @@
+/*
+ * z-index for the UI components
+ * It's set to a very high number to make sure it's always on top of the map
+ * It seems to be difficult to set the z-index of the map itself
+ * because it's rendered by the Google Maps API,
+ * so we set the z-index of the UI components to a very high number to be on the safe side
+ */
+.ui-z-index {
+    z-index: 2000;
+}

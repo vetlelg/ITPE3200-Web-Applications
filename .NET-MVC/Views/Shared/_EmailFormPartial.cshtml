@@ -1,0 +1,9 @@
+@model ITPE3200ExamProject.ViewModels.EmailViewModel
+
+<form asp-action="UpdateEmail" method="post">
+    <div class="mb-2 form-group">
+        <input type="email" asp-for="Email" class="form-control w-50 mx-auto" placeholder="Enter email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Change Email</button>
+</form>
